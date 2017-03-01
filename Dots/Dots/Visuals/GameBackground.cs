@@ -3,19 +3,17 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using MonoDragons.Core.Engine;
 using MonoDragons.Core.Graphics;
-using MonoDragons.Core.Inputs;
 
-namespace Dots.Scenes
+namespace Dots.Visuals
 {
-    public class GameBackground : IScene
+    public class GameBackground : IVisualAutomaton
     {
-        private Texture2D _theLine;
+        private readonly Texture2D _theLine;
         private const int CellWidth = 32;
         private readonly Color _lineColor = Color.FromNonPremultiplied(120, 120, 255, 50);
 
-        public void Init()
+        public GameBackground()
         {
-            Input.ClearBindings();
             _theLine = new LineTexture(Color.White).Create();
         }
 
@@ -23,7 +21,7 @@ namespace Dots.Scenes
         {
         }
 
-        public void Draw()
+        public void Draw(Vector2 offset)
         {
             World.DrawBrackgroundColor(Color.FromNonPremultiplied(30, 30, 30, 255));
             for (var x = 0; x < 50; x++)

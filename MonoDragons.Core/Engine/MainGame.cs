@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using MonoDragons.Core.Inputs;
+using MonoDragons.Core.PhysicsEngine;
 
 namespace MonoDragons.Core.Engine
 {
@@ -47,6 +48,7 @@ namespace MonoDragons.Core.Engine
         {
             _controller.Update(gameTime.ElapsedGameTime);
             _currentScene?.Update(gameTime.ElapsedGameTime);
+            new Physics().Resolve();
             base.Update(gameTime);
         }
 
