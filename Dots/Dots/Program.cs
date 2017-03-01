@@ -4,6 +4,7 @@ using Dots.Scenes;
 using Microsoft.Xna.Framework.Input;
 using MonoDragons.Core.Engine;
 using MonoDragons.Core.Inputs;
+using MonoDragons.Core.Render;
 
 namespace Dots
 {
@@ -36,8 +37,8 @@ namespace Dots
             return new SceneFactory(new Dictionary<string, Func<IScene>>
             {
                 { "PlayerTest", () => new PlayerTest() },
-                {"MainMenu", () => new MainMenu()},
-                {"Game", () => new Game()},
+                { "MainMenu", () => new FadingInScene(TimeSpan.FromMilliseconds(1000), new MainMenu())},
+                { "Game", () => new Game()},
             });
         }
     }
