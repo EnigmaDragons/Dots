@@ -19,7 +19,7 @@ namespace Dots
         [STAThread]
         static void Main()
         {
-            using (var game = new MainGame("CameraTest", new ScreenSettings(1600, 900, false), CreateSceneFactory(), CreateKeyboardController()))
+            using (var game = new MainGame("MainMenu", new ScreenSettings(1600, 900, false), CreateSceneFactory(), CreateKeyboardController()))
                 game.Run();
         }
 
@@ -37,7 +37,7 @@ namespace Dots
             {
                 { "PlayerTest", () => new PlayerTest() },
                 {"MainMenu", () => new MainMenu()},
-                {"CameraTest", () => new CameraTest()},
+                {"Game", () => new Game()},
             });
         }
     }

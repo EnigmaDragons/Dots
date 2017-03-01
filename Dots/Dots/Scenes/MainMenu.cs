@@ -9,7 +9,7 @@ namespace Dots.Scenes
     {
         public void Init()
         {
-            Input.On(Control.Start, () => World.NavigateToScene("GameBackground"));
+            Input.On(Control.Start, () => World.NavigateToScene("Game"));
         }
 
         public void Update(TimeSpan delta)
@@ -21,7 +21,7 @@ namespace Dots.Scenes
             World.DrawBrackgroundColor(Color.Black);
             World.Draw("Images/Backgrounds/mainmenu", new Rectangle(0, 0, 1600, 900));
             World.Draw("Images/Logo/dots", new Vector2(520, 220));
-            World.Draw("Images/Logo/pressenter", new Vector2(340, 600));
+            World.Draw("Images/Logo/pressenter", new Vector2(330, 600));
         }
     }
 }
