@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
 using MonoDragons.Core.Engine;
+using MonoDragons.Core.Inputs;
 using MonoDragons.Core.UserInterface;
 
 namespace Dots.Scenes
@@ -9,9 +10,21 @@ namespace Dots.Scenes
     public class Logo : IScene
     {
         private bool _begunTransition;
+        private bool _transitionComplete;
 
         public void Init()
         {
+            Input.ClearBindings();
+            Input.On(Control.Start, NavigateToMainMenu);
+        }
+
+        private void NavigateToMainMenu()
+        {
+            if (_transitionComplete)
+                return;
+
+            _transitionComplete = true;
+            World.NavigateToScene("MainMenu");
         }
 
         public async void Update(TimeSpan delta)
@@ -21,7 +34,7 @@ namespace Dots.Scenes
             
             _begunTransition = true;
             await Task.Delay(2000);
-            World.NavigateToScene("MainMenu");
+            NavigateToMainMenu();
         }
 
         public void Draw()

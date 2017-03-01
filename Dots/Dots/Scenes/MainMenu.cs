@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
 using MonoDragons.Core.Engine;
 using MonoDragons.Core.Inputs;
@@ -11,7 +12,12 @@ namespace Dots.Scenes
         public void Init()
         {
             Input.ClearBindings();
-            Input.On(Control.Start, () => World.NavigateToScene("Game"));
+            Input.On(Control.Start, async () =>
+            {
+                World.PlaySound("Sounds/startgame");
+                await Task.Delay(1500);
+                World.NavigateToScene("Game");
+            });
         }
 
         public void Update(TimeSpan delta)
