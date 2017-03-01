@@ -29,6 +29,12 @@ namespace MonoDragons.Core.Engine
             DefaultFont.Load(_content);
         }
 
+        public static void Draw(Texture2D texture, Rectangle rectangle, Color color)
+        {
+            _sceneContents.Put(texture.GetHashCode().ToString(), texture);
+            _spriteBatch.Draw(texture, rectangle, color);
+        }
+
         public static void PlaySound(string soundName)
         {
             Load<SoundEffect>(soundName).Play();
@@ -81,7 +87,7 @@ namespace MonoDragons.Core.Engine
         public static void Subscribe<T>(EventSubscription<T> subscription)
         {
             _events.Subscribe(subscription);
-            _sceneContents.Add(Guid.NewGuid().ToString(), subscription);
+            _sceneContents.Put(Guid.NewGuid().ToString(), subscription);
         }
 
         public static void Unsubscribe(object owner)
@@ -92,7 +98,7 @@ namespace MonoDragons.Core.Engine
         public static void DrawRectangle(Rectangle rectangle, Color color)
         {
             var rect = CreateRectangleTexture(rectangle.Width, rectangle.Height, color);
-            _sceneContents.Add(Guid.NewGuid().ToString(), rect);
+            _sceneContents.Put(Guid.NewGuid().ToString(), rect);
             _spriteBatch.Draw(rect, rectangle, color);
         }
 
@@ -107,6 +113,10 @@ namespace MonoDragons.Core.Engine
             return texture;
         }
 
-
+        public static void Draw(Texture2D texture, Vector2 position)
+        {
+            _sceneContents.Put(texture.GetHashCode().ToString(), texture);
+            _spriteBatch.Draw(texture, position);
+        }
     }
 }

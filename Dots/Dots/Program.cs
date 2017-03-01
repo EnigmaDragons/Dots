@@ -25,7 +25,10 @@ namespace Dots
 
         private static IController CreateKeyboardController()
         {
-            return new KeyboardController(new Map<Keys, Control>());
+            return new KeyboardController(new Map<Keys, Control>
+            {
+                { Keys.Enter, Control.Start }
+            });
         }
 
         private static SceneFactory CreateSceneFactory()
@@ -33,6 +36,7 @@ namespace Dots
             return new SceneFactory(new Dictionary<string, Func<IScene>>
             {
                 {"MainMenu", () => new MainMenu()},
+                {"GameBackground", () => new GameBackground() },
             });
         }
     }
