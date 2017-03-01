@@ -25,9 +25,9 @@ namespace Dots.Visuals
         {
             World.DrawBrackgroundColor(Color.FromNonPremultiplied(30, 30, 30, 255));
             for (var x = 0; x < 50; x++)
-                World.Draw(_theLine, new Rectangle(x * CellWidth, 0, 1, 1080), _lineColor);
+                World.Draw(_theLine, new Rectangle(x * CellWidth + (int)offset.X % 32, 0, 1, 1080), _lineColor);
             for (var y = 0; y < 28; y++)
-                World.Draw(_theLine, new Rectangle(0, y * CellWidth, 1920, 1), _lineColor);
+                World.Draw(_theLine, new Rectangle(0, y * CellWidth + (int)offset.Y % 32, 1920, 1), _lineColor);
         }
     }
 }
