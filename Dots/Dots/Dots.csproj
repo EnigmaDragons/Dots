@@ -38,6 +38,7 @@
     <ApplicationIcon>Icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Animation\MovingPoint.cs" />
     <Compile Include="Characters\Blob.cs" />
     <Compile Include="Characters\EnemyBlob.cs" />
     <Compile Include="Characters\PlayerBlob.cs" />
@@ -45,6 +46,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Scenes\PlayerTest.cs" />
     <Compile Include="Scenes\MainMenu.cs" />
+    <Compile Include="Visuals\GameBackground.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MonoGame.Framework">

@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.Xna.Framework;
 using MonoDragons.Core.Engine;
+using MonoDragons.Core.Inputs;
 
 namespace Dots.Scenes
 {
@@ -8,6 +9,7 @@ namespace Dots.Scenes
     {
         public void Init()
         {
+            Input.On(Control.Start, () => World.NavigateToScene("GameBackground"));
         }
 
         public void Update(TimeSpan delta)

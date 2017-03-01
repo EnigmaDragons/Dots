@@ -62,6 +62,8 @@
     <Compile Include="EventSystem\EventSubscription.cs" />
     <Compile Include="EventSystem\EventTypes\KeyDownEvent.cs" />
     <Compile Include="EventSystem\EventTypes\KeyUpEvent.cs" />
+    <Compile Include="Graphics\CometTexture.cs" />
+    <Compile Include="Graphics\LineTexture.cs" />
     <Compile Include="Graphics\RectangleTexture.cs" />
     <Compile Include="Inputs\Control.cs" />
     <Compile Include="Inputs\ControlSubscription.cs" />
