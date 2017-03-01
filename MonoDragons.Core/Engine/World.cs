@@ -94,5 +94,25 @@ namespace MonoDragons.Core.Engine
         {
             _events.Unsubscribe(owner);
         }
+
+        public static void DrawRectangle(Rectangle rectangle, Color color)
+        {
+            var rect = CreateRectangleTexture(rectangle.Width, rectangle.Height, color);
+            _sceneContents.Add(Guid.NewGuid().ToString(), rect);
+            _spriteBatch.Draw(rect, rectangle, color);
+        }
+
+        private static Texture2D CreateRectangleTexture(int width, int height, Color color)
+        {
+            var data = new Color[width * height];
+            for (var i = 0; i < data.Length; ++i)
+                data[i] = color;
+
+            var texture = new Texture2D(_game.GraphicsDevice, width, height);
+            texture.SetData(data);
+            return texture;
+        }
+
+
     }
 }

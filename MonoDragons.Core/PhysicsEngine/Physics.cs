@@ -37,6 +37,16 @@ namespace MonoDragons.Core.PhysicsEngine
             _instance.Move(source, direction, distance, moveCallback);
         }
 
+        public void Arrive(Vector2 source, Vector2 destination, Action uponArrivial)
+        {
+            _instance.Arrive(source, destination, uponArrivial);
+        }
+
+        public Vector2 GetLocation(Vector2 source, Vector2 direction, float distance)
+        {
+            return _instance.GetLocation(source, direction, distance);
+        }
+
         public void Resolve()
         {
             _instance.Resolve();

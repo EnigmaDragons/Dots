@@ -19,15 +19,13 @@ namespace Dots
         [STAThread]
         static void Main()
         {
-            using (var game = new MainGame("PlayerTest", new ScreenSize(1600, 900), CreateSceneFactory(), CreateKeyboardContoller()))
+            using (var game = new MainGame("PlayerTest", new ScreenSettings(1600, 900, false), CreateSceneFactory(), CreateKeyboardController()))
                 game.Run();
         }
 
-        private static IController CreateKeyboardContoller()
+        private static IController CreateKeyboardController()
         {
-            return new KeyboardController(new Map<Keys, Control>
-            {
-            });
+            return new KeyboardController(new Map<Keys, Control>());
         }
 
         private static SceneFactory CreateSceneFactory()
@@ -35,6 +33,7 @@ namespace Dots
             return new SceneFactory(new Dictionary<string, Func<IScene>>
             {
                 { "PlayerTest", () => new PlayerTest() },
+                {"MainMenu", () => new MainMenu()},
             });
         }
     }

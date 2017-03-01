@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Microsoft.Xna.Framework;
 
 namespace MonoDragons.Core.PhysicsEngine
@@ -37,12 +38,28 @@ namespace MonoDragons.Core.PhysicsEngine
 
         public void Move(Vector2 source, Vector2 direction, float distance, Action<Vector2> moveCallback)
         {
-            callbacks.Add(() => moveCallback(source + direction * distance));
+            callbacks.Add(() => moveCallback(GetLocation(source, direction, distance)));
+        }
+
+        public void Arrive(Vector2 source, Vector2 destination, Action uponArrivial)
+        {
+            callbacks.Add(() =>
+            {
+                if (Math.Abs(source.X - destination.X) < 10 && Math.Abs(source.Y - destination.Y) < 10)
+                    uponArrivial();
+            });
+        }
+
+        public Vector2 GetLocation(Vector2 source, Vector2 direction, float distance)
+        {
+            return source + direction * distance;
         }
 
         public void Resolve()
         {
-            callbacks.ForEach(x => x());
+            var list = callbacks.ToList();
+            callbacks.Clear();
+            list.ForEach(x => x());
         }
     }
 }

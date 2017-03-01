@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using Dots.Player;
+using Dots.Characters;
 using Microsoft.Xna.Framework;
 using MonoDragons.Core.Engine;
 
@@ -14,8 +14,11 @@ namespace Dots.Scenes
         public void Init()
         {
             var player = new PlayerBlob(Color.Red);
+            var enemies = new List<EnemyBlob> { new EnemyBlob(), new EnemyBlob(), new EnemyBlob(), new EnemyBlob()};
             _visuals.Add(player);
+            _visuals.AddRange(enemies);
             _automatons.Add(player);
+            _automatons.AddRange(enemies);
         }
 
         public void Update(TimeSpan delta)
@@ -26,7 +29,7 @@ namespace Dots.Scenes
         public void Draw()
         {
             World.DrawBrackgroundColor(Color.Black);
-            _visuals.ForEach(x => x.Draw(Vector2.Zero));
+            _visuals.ForEach(x => x.Draw(new Vector2(775, 425)));
         }
     }
 }

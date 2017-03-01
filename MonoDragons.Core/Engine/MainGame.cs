@@ -14,9 +14,9 @@ namespace MonoDragons.Core.Engine
         private SpriteBatch _sprites;
         private IScene _currentScene;
 
-        public MainGame(string startingViewName, ScreenSize screenSize, SceneFactory sceneFactory, IController controller)
+        public MainGame(string startingViewName, ScreenSettings screenSettings, SceneFactory sceneFactory, IController controller)
         {
-            screenSize.Apply(new GraphicsDeviceManager(this));
+            screenSettings.Apply(new GraphicsDeviceManager(this));
             Content.RootDirectory = "Content";
             _startingViewName = startingViewName;
             _sceneFactory = sceneFactory;
@@ -25,6 +25,7 @@ namespace MonoDragons.Core.Engine
 
         protected override void Initialize()
         {
+            
             IsMouseVisible = true;
             _sprites = new SpriteBatch(GraphicsDevice);
             Hack.TheGame = this;
