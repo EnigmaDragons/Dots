@@ -23,7 +23,7 @@ namespace Dots.Visuals
 
         public void Draw(Vector2 offset)
         {
-            World.DrawBrackgroundColor(Color.FromNonPremultiplied(30, 30, 30, 255));
+            World.DrawBackgroundColor(Color.FromNonPremultiplied(30, 30, 30, 255));
             for (var x = 0; x < 50; x++)
                 World.Draw(_theLine, new Rectangle(x * CellWidth + (int)offset.X % 32, 0, 1, 1080), _lineColor);
             for (var y = 0; y < 28; y++)

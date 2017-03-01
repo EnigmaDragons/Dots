@@ -34,7 +34,7 @@ namespace Dots.Scenes
 
         public void Draw()
         {
-            World.DrawBrackgroundColor(Color.Black);
+            World.DrawBackgroundColor(Color.Black);
             _visuals.ForEach(x => x.Draw(new Vector2(775, 425)));
         }
     }

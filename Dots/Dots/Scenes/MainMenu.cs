@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework;
 using MonoDragons.Core.Engine;
 using MonoDragons.Core.Inputs;
+using MonoDragons.Core.UserInterface;
 
 namespace Dots.Scenes
 {
@@ -9,6 +10,7 @@ namespace Dots.Scenes
     {
         public void Init()
         {
+            Input.ClearBindings();
             Input.On(Control.Start, () => World.NavigateToScene("Game"));
         }
 
@@ -18,10 +20,10 @@ namespace Dots.Scenes
 
         public void Draw()
         {
-            World.DrawBrackgroundColor(Color.Black);
-            World.Draw("Images/Backgrounds/mainmenu", new Rectangle(0, 0, 1600, 900));
-            World.Draw("Images/Logo/dots", new Vector2(520, 220));
-            World.Draw("Images/Logo/pressenter", new Vector2(330, 600));
+            UI.DrawBackgroundColor(Color.Black);
+            UI.DrawCentered("Images/Backgrounds/mainmenu", new Vector2(1600, 900));
+            UI.DrawCenteredWithOffset("Images/Logo/dots", new Vector2(0, -140));
+            UI.DrawCenteredWithOffset("Images/Logo/pressenter", new Vector2(0, 200));
         }
     }
 }

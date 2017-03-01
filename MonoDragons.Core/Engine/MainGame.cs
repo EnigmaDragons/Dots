@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using MonoDragons.Core.Inputs;
+using MonoDragons.Core.Memory;
 using MonoDragons.Core.PhysicsEngine;
 
 namespace MonoDragons.Core.Engine
@@ -31,6 +32,8 @@ namespace MonoDragons.Core.Engine
             Hack.TheGame = this;
             Input.SetController(_controller);
             World.Init(this, this, _sprites);
+            Resources.Init(this);
+            UserInterface.UI.Init(this, _sprites);
             base.Initialize();
         }
 

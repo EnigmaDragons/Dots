@@ -47,6 +47,7 @@
     <Compile Include="Scenes\Game.cs" />
     <Compile Include="Scenes\PlayerTest.cs" />
     <Compile Include="Scenes\MainMenu.cs" />
+    <Compile Include="Scenes\Logo.cs" />
     <Compile Include="Visuals\GameBackground.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -61,6 +62,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Images\Logo\dots.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Images\Logo\enigmadragons.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Images\Logo\pressenter.png">

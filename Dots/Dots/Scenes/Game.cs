@@ -39,7 +39,7 @@ namespace Dots.Scenes
 
         public void Draw()
         {
-            World.DrawBrackgroundColor(Color.Black);
+            World.DrawBackgroundColor(Color.Black);
             _camera.Draw(_visuals);
         }
 

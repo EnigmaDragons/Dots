@@ -14,6 +14,9 @@ namespace MonoDragons.Core.Render
 
         private IScene _scene;
 
+        public FadingInScene(IScene scene)
+            : this (TimeSpan.FromMilliseconds(2000), scene) { }
+
         public FadingInScene(TimeSpan duration, IScene scene)
             : this (duration, () => scene) { }
 
