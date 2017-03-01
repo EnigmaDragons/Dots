@@ -42,6 +42,7 @@
     <Compile Include="Common\EnumerableExtensions.cs" />
     <Compile Include="Common\ISubscription.cs" />
     <Compile Include="Common\ISubject.cs" />
+    <Compile Include="Common\Rng.cs" />
     <Compile Include="Common\Subject.cs" />
     <Compile Include="Common\SubscriptionAction.cs" />
     <Compile Include="Engine\Hack.cs" />
@@ -62,8 +63,10 @@
     <Compile Include="EventSystem\EventSubscription.cs" />
     <Compile Include="EventSystem\EventTypes\KeyDownEvent.cs" />
     <Compile Include="EventSystem\EventTypes\KeyUpEvent.cs" />
+    <Compile Include="Graphics\CircleTexture.cs" />
     <Compile Include="Graphics\CometTexture.cs" />
     <Compile Include="Graphics\LineTexture.cs" />
+    <Compile Include="Graphics\RandomColor.cs" />
     <Compile Include="Graphics\RectangleTexture.cs" />
     <Compile Include="Inputs\Control.cs" />
     <Compile Include="Inputs\ControlSubscription.cs" />

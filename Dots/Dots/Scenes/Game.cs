@@ -24,12 +24,12 @@ namespace Dots.Scenes
             var player = new PlayerBlob(Color.Red);
             var enemies = new List<EnemyBlob> { new EnemyBlob(), new EnemyBlob(), new EnemyBlob(), new EnemyBlob() };
             var gameBackground = new GameBackground();
+            _visuals.Add(gameBackground);
             _visuals.Add(player);
             _visuals.AddRange(enemies);
-            _visuals.Add(gameBackground);
+            _automatons.Add(gameBackground);
             _automatons.Add(player);
             _automatons.AddRange(enemies);
-            _automatons.Add(gameBackground);
         }
 
         public void Update(TimeSpan delta)

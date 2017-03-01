@@ -5,7 +5,7 @@ using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Media;
 using MonoDragons.Core.EventSystem;
-using MonoDragons.Core.Shapes;
+using MonoDragons.Core.Graphics;
 using MonoDragons.Core.UI;
 
 namespace MonoDragons.Core.Engine
@@ -82,7 +82,9 @@ namespace MonoDragons.Core.Engine
 
         public static void DrawCircle(float radius, Color color, Vector2 position)
         {
-            _spriteBatch.Draw(new Circle(radius, color, _game.GraphicsDevice).Get(), position);
+            var circle = new CircleTexture((int) radius, color).Create();
+            _sceneContents.Put(Guid.NewGuid().ToString(), circle);
+            _spriteBatch.Draw(circle, position);
         }
 
         public static void Publish<T>(T payload)
@@ -103,20 +105,9 @@ namespace MonoDragons.Core.Engine
 
         public static void DrawRectangle(Rectangle rectangle, Color color)
         {
-            var rect = CreateRectangleTexture(rectangle.Width, rectangle.Height, color);
+            var rect = new RectangleTexture(rectangle.Width, rectangle.Height, color).Create();
             _sceneContents.Put(Guid.NewGuid().ToString(), rect);
             _spriteBatch.Draw(rect, rectangle, color);
-        }
-
-        private static Texture2D CreateRectangleTexture(int width, int height, Color color)
-        {
-            var data = new Color[width * height];
-            for (var i = 0; i < data.Length; ++i)
-                data[i] = color;
-
-            var texture = new Texture2D(_game.GraphicsDevice, width, height);
-            texture.SetData(data);
-            return texture;
         }
 
         public static void Draw(Texture2D texture, Vector2 position)

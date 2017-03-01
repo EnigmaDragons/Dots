@@ -1,5 +1,6 @@
 ﻿using System;
 using Microsoft.Xna.Framework;
+using MonoDragons.Core.Common;
 
 namespace MonoDragons.Core.PhysicsEngine
 {
@@ -16,8 +17,7 @@ namespace MonoDragons.Core.PhysicsEngine
 
         private void ResolveRandomDirection()
         {
-            var random = new Random(Guid.NewGuid().GetHashCode());
-            _direction = new Physics().GetDirectionTowards(Vector2.Zero, new Vector2(random.Next(-100, 100), random.Next(-100, 100)));
+            _direction = new Physics().GetDirectionTowards(Vector2.Zero, new Vector2(Rng.Int(-100, 100), Rng.Int(-100, 100)));
         }
     }
 }
