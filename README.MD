@@ -2,7 +2,7 @@
 
 ----
 
-Game Jam - Created in 5.5 hours on 2/28/17 
+Game Hack Nite - Created in 5.5 hours on 2/28/17 
 
 ----
 
