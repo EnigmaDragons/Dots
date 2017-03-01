@@ -1,4 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
+using Dots.Scenes;
+using Microsoft.Xna.Framework.Input;
+using MonoDragons.Core.Engine;
+using MonoDragons.Core.Inputs;
 
 namespace Dots
 {
@@ -14,8 +19,21 @@ namespace Dots
         [STAThread]
         static void Main()
         {
-            using (var game = new Game1())
+            using (var game = new MainGame("MainMenu", new ScreenSettings(1600, 900, false), CreateSceneFactory(), CreateKeyboardController()))
                 game.Run();
+        }
+
+        private static IController CreateKeyboardController()
+        {
+            return new KeyboardController(new Map<Keys, Control>());
+        }
+
+        private static SceneFactory CreateSceneFactory()
+        {
+            return new SceneFactory(new Dictionary<string, Func<IScene>>
+            {
+                {"MainMenu", () => new MainMenu()},
+            });
         }
     }
 #endif
