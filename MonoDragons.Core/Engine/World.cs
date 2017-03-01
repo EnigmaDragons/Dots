@@ -5,6 +5,7 @@ using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Media;
 using MonoDragons.Core.EventSystem;
+using MonoDragons.Core.Shapes;
 using MonoDragons.Core.UI;
 
 namespace MonoDragons.Core.Engine
@@ -71,6 +72,11 @@ namespace MonoDragons.Core.Engine
         public static void DrawText(string text, Vector2 position, Color color)
         {
             _spriteBatch.DrawString(DefaultFont.Font, text, position, color);
+        }
+
+        public static void DrawCircle(float radius, Color color, Vector2 position)
+        {
+            _spriteBatch.Draw(new Circle(radius, color, _game.GraphicsDevice).Get(), position);
         }
 
         public static void Publish<T>(T payload)
